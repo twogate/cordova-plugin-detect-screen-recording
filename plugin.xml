@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-detect-screen-recording" version="0.0.1">
+  <name>cordova-plugin-detect-screen-recording</name>
+
+  <description>Detect Screen Recording</description>
+  <license>MIT</license>
+
+  <keywords>cordova,ios,screen,recording</keywords>
+  <repo>https://github.com/twogate/cordova-plugin-detect-screen-recording.git</repo>
+  <issue>https://github.com/twogate/cordova-plugin-detect-screen-recording/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=8.0.0"/>
+    <engine name="cordova-ios" version=">=4.5.0"/>
+    <engine name="apple-ios" version=">=11.0" />
+  </engines>
+
+  <js-module src="www/detect-screen-recording.js" name="DetectScreenRecording">
+    <clobbers target="cordova.plugins.DetectScreenRecording" />
+  </js-module>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="DetectScreenRecording">
+        <param name="ios-package" value="DetectScreenRecording" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/ios/DetectScreenRecording.h" />
+    <source-file src="src/ios/DetectScreenRecording.m" />
+
+    <!--<hook type="after_prepare" src="scripts/after_prepare.js" />-->
+  </platform>
+</plugin>
