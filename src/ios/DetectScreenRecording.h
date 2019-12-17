@@ -6,6 +6,7 @@
 @interface DetectScreenRecording : CDVPlugin
 - (void)pluginInitialize;
 - (void)onCaptureStatusChanged:(CDVInvokedUrlCommand *)command;
+- (void)isCaptured:(CDVInvokedUrlCommand *)command;
 @property (nonatomic, copy) NSString *captureStatusCallbackId;
 @end
 

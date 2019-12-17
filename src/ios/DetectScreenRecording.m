@@ -32,4 +32,11 @@
 - (void)onCaptureStatusChanged:(CDVInvokedUrlCommand *)command {
   self.captureStatusCallbackId = command.callbackId;
 }
+
+- (void)isCaptured:(CDVInvokedUrlCommand *)command {
+  BOOL isCaptured = [UIScreen mainScreen].isCaptured;
+  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:isCaptured];
+  [pluginResult setKeepCallbackAsBool:YES];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 @end
